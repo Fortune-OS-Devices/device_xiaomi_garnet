@@ -1,0 +1,51 @@
+[
+   {
+     "repository": "device_xiaomi_garnet-kernel",
+     "target_path": "device/xiaomi/garnet-kernel"
+   },
+   {
+     "repository": "vendor_xiaomi_garnet",
+     "target_path": "vendor/xiaomi/garnet"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_hardware_qcom_audio",
+     "target_path": "vendor/qcom/opensource/audio-hal/primary-hal",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_vendor_qcom_opensource_arpal-lx",
+     "target_path": "vendor/qcom/opensource/pal",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_vendor_qcom_opensource_agm",
+     "target_path": "vendor/qcom/opensource/agm",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_hardware_qcom_display",
+     "target_path": "hardware/qcom/display",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_hardware_qcom_gps",
+     "target_path": "hardware/qcom/gps",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_hardware_qcom_media",
+     "target_path": "hardware/qcom/media",
+     "branch":   "udc-7435"
+   },
+   {
+     "remote":     "Fortune-OS",
+     "repository": "platform_hardware_xiaomi",
+     "target_path": "hardware/xiaomi"
+   }
+]
