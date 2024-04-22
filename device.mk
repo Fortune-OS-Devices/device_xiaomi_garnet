@@ -156,11 +156,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
 
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health-service.xiaomi \
-    android.hardware.health-service.xiaomi_recovery
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
@@ -330,13 +325,15 @@ PRODUCT_PACKAGES += \
 
 # QCOM Common
 TARGET_USE_AIDL_QTI_BT_AUDIO := true
+TARGET_USE_HIDL_QTI_HEALTH := true
 
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
     av \
     alarm \
     audio \
-    bt
+    bt \
+    charging
 
 # QMI
 PRODUCT_PACKAGES += \
