@@ -289,7 +289,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     init \
     media  \
     overlay \
-    perf
+    perf \
+    telephony
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -299,11 +300,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.systemhelper@1.0.vendor
 
 # Radio
-PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.3.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.radio@1.6.vendor
-
 PRODUCT_PACKAGES += \
     librmnetctl
 
