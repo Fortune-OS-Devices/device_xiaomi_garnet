@@ -268,13 +268,6 @@ PRODUCT_PACKAGES += \
 # Platform
 TARGET_BOARD_PLATFORM := parrot
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.perf@2.3.vendor
-
 # Protobuf
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
@@ -295,7 +288,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     gps \
     init \
     media  \
-    overlay
+    overlay \
+    perf
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -331,10 +325,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
-
-# Servicetracker
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.servicetracker@1.2.vendor
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
