@@ -260,7 +260,6 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlayGarnetRedmi \
     SettingsProviderOverlayGarnetRedmiCN \
     SystemUIOverlayGarnet \
-    TelephonyOverlayGarnet \
     WifiOverlayGarnet \
     WifiOverlayGarnetPoco \
     WifiOverlayGarnetRedmi \
@@ -295,7 +294,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     display \
     gps \
     init \
-    media
+    media  \
+    overlay
 
 # QMI
 PRODUCT_PACKAGES += \
