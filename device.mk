@@ -385,7 +385,8 @@ PRODUCT_PACKAGES += \
 
 # QCOM Common
 TARGET_COMMON_QTI_COMPONENTS := \
-    adreno
+    adreno \
+    av
 
 # QMI
 PRODUCT_PACKAGES += \
