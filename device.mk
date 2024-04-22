@@ -155,11 +155,8 @@ PRODUCT_PACKAGES += \
     charger_fw_fstab.qti \
     fstab.qcom \
     init.garnet.rc \
-    init.qcom.rc \
-    init.recovery.qcom.rc \
     init.target.rc \
-    ueventd-odm.rc \
-    ueventd.qcom.rc
+    ueventd-odm.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
@@ -315,7 +312,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     bt \
     charging \
     display \
-    gps
+    gps \
+    init
 
 # QMI
 PRODUCT_PACKAGES += \
