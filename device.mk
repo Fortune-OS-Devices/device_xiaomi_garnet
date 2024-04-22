@@ -293,7 +293,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     telephony \
     usb \
     vibrator \
-    wlan
+    wlan \
+    wfd
 
 # QMI
 PRODUCT_PACKAGES += \
