@@ -1,8 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
-#
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -56,21 +55,27 @@ fi
 function blob_fixup() {
     case "${1}" in
         system_ext/lib64/libwfdnative.so)
+            [ "$2" = "" ] && return 0
             ${PATCHELF} --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
         vendor/bin/hw/android.hardware.security.keymint-service-qti|vendor/lib/libqtikeymint.so|vendor/lib64/libqtikeymint.so)
+            [ "$2" = "" ] && return 0
             grep -q "android.hardware.security.rkp-V3-ndk.so" "${2}" || "${PATCHELF_0_17_2}" --add-needed "android.hardware.security.rkp-V3-ndk.so" "${2}"
             ;;
         vendor/etc/camera/pureView_parameter.xml)
+            [ "$2" = "" ] && return 0
             sed -i 's/=\([0-9]\+\)>/="\1">/g' "${2}"
             ;;
         vendor/etc/init/hw/init.batterysecret.rc|vendor/etc/init/hw/init.mi_thermald.rc|vendor/etc/init/hw/init.qti.kernel.rc)
+            [ "$2" = "" ] && return 0
             sed -i 's/on charger/on property:init.svc.vendor.charger=running/g' "${2}"
             ;;
         vendor/etc/media_codecs_parrot_v0.xml)
+            [ "$2" = "" ] && return 0
             sed -i -E '/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d' "${2}"
             ;;
         vendor/etc/vintf/manifest/c2_manifest_vendor.xml)
+            [ "$2" = "" ] && return 0
             sed -ni '/dolby/!p' "${2}"
             ;;
         vendor/lib64/vendor.libdpmframework.so)
@@ -78,17 +83,23 @@ function blob_fixup() {
             grep -q "libhidlbase_shim.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy|vendor/etc/seccomp_policy/wfdhdcphalservice.policy)
-        [ "$2" = "" ] && return 0
+            [ "$2" = "" ] && return 0
             grep -q "gettid: 1" "${2}" || echo -e "\ngettid: 1" >> "${2}"
             ;;
        vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
             ;;
        vendor/lib64/hw/audio.primary.parrot.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
             ;;
         vendor/lib/libstagefright_soft_ac4dec.so | vendor/lib/libstagefright_soft_ddpdec.so | vendor/lib/libstagefrightdolby.so | vendor/lib64/libdlbdsservice.so | vendor/lib64/libstagefright_soft_ac4dec.so | vendor/lib64/libstagefright_soft_ddpdec.so | vendor/lib64/libstagefrightdolby.so)
+            [ "$2" = "" ] && return 0
             grep -q "libstagefright_foundation-v33.so" "${2}" || "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        *)
+            return 1
             ;;
     esac
 }
